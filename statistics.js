@@ -21,6 +21,6 @@ function variance(list){
   return (variance/list.length);
 }
 module.exports = {
-  avg: function(p) {return avg(p);},
-  variance: function(p) {return variance(p);}
+  avg: avg,
+  variance: variance
 };
