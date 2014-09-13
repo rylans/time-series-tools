@@ -1,0 +1,12 @@
+{
+  "name": "time-series-tools",
+  "version": "1.0.0",
+  "description": "Tools for time series analysis",
+  "author": "Rylans",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest-cli": "^0.1.18"
+  }
+}
