@@ -2,6 +2,7 @@
 
 //sample mean
 function avg(list){
+  if(list.length === 0) throw new Error("List length is zero");
   var avg = 0.0;
   for(var i = 0; i < list.length; i++){
     avg = avg + list[i];
@@ -11,6 +12,7 @@ function avg(list){
 
 //variance
 function variance(list){
+  if(list.length === 0) throw new Error("List length is zero");
   var m = avg(list);
   var variance = 0;
   for(var i = 0; i < list.length; i++){

@@ -8,7 +8,7 @@ Functions for time series analysis and ARIMA models
 Install Jest
 
 ```
-npm intall jest-cli --save-dev
+npm install jest-cli --save-dev
 ```
 
 to run the tests:
