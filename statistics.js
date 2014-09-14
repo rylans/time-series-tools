@@ -1,4 +1,8 @@
-//statistics.js
+/*
+* statistics.js
+*
+* Rylan Santinon
+*/
 
 //sample mean
 function avg(list){
@@ -14,10 +18,13 @@ function avg(list){
 function variance(list){
   if(list.length === 0) throw new Error("List length is zero");
   var m = avg(list);
-  var variance = 0;
+  var sum = 0;
   for(var i = 0; i < list.length; i++){
-    variance = variance + (list[i] - m) * (list[i] - m);
+    sum = sum + (list[i] - m) * (list[i] - m);
   }
+  var variance = sum/list.length;
+  
+  if(variance < 0) throw new Error("Variance is never negative");
   return (variance/list.length);
 }
 module.exports = {
