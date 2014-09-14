@@ -1,11 +1,12 @@
-/*
-* statistics.js
-*
-* Rylan Santinon
+/**
+* @file statistics.js
+* @author Rylan Santinon
 */
 
 /**
 * Calculates the arithmetic mean
+* @param {Array.<Number>} list
+* @return {Number} mean
 */
 function avg(list){
   if(list.length === 0) throw new Error("List length is zero");
@@ -18,6 +19,8 @@ function avg(list){
 
 /**
 * Calculates the variance
+* @param {Array.<Number>} list
+* @return {Number} variance
 */
 function variance(list){
   if(list.length === 0) throw new Error("List length is zero");
@@ -32,6 +35,11 @@ function variance(list){
   return variance;
 }
 
+/**
+* Calculates the population standard deviation
+* @param {Array.<Number>} list
+* @return {Number} standard deviation
+*/
 function standard_deviation(list){
   return Math.sqrt(variance(list));
 }
