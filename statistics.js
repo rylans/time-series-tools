@@ -44,9 +44,38 @@ function standard_deviation(list){
   return Math.sqrt(variance(list));
 }
 
+/**
+* Calculates the median
+* @param {Array.<Number>} list
+* @return {Number} median
+*/ 
+function median(list){
+  list.sort();
+  var len = list.length;
+  if((len%2) === 0){
+    return list[len/2];
+  } else {
+    return (list[len/2] + list[(len/2) +1])/2;
+  }
+}
+
+/**
+* Calculates the skewness
+* @param {Array.<Number>} list
+* @return {Number} skewness
+*/ 
+function skewness(list){
+  return 3*(mean(list) - median(list))/standard_deviation(list);
+}
+
 module.exports = {
   mean: avg,
   avg: avg,
+  
+  meadian: median,
+  
+  skew: skewness,
+  skewness: skewness,
   
   variance: variance,
  
