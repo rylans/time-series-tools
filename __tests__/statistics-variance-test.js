@@ -12,7 +12,7 @@ describe('variance', function(){
 	var variance = stats.variance;
 	
 	var list = [206,76,-224,36,-94];
-	var expected = 21704;
+	var expected = 21704.0;
 	var actual = variance(list);
 
 	log.info("Input: " + list);

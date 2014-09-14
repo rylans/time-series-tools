@@ -25,7 +25,7 @@ function variance(list){
   var variance = sum/list.length;
   
   if(variance < 0) throw new Error("Variance is never negative");
-  return (variance/list.length);
+  return variance;
 }
 module.exports = {
   avg: avg,
