@@ -15,3 +15,22 @@ to run the tests:
 ```
 npm test
 ```
+
+## Planned features
+
+### Summary statistics
+* ~~mean~~
+* ~~median~~
+* range
+* interquartile range
+* ~~standard deviation~~
+* ~~variance~~
+* skewness
+* kurtosis
+* maximum
+* minimum
+* sum
+
+### R functions
+* lagged time series `lag(ts, k)`
+* difference the time series `diff(ts)`
