@@ -19,12 +19,12 @@ npm test
 ## Planned features
 
 ### Summary statistics
-* ~~mean~~
-* ~~median~~
+* ~~mean~~ **Done**
+* ~~median~~ **Done**
 * range
 * interquartile range
-* ~~standard deviation~~
-* ~~variance~~
+* ~~standard deviation~~ **Done**
+* ~~variance~~ **Done**
 * skewness
 * kurtosis
 * maximum
@@ -33,4 +33,8 @@ npm test
 
 ### R functions
 * lagged time series `lag(ts, k)`
-* difference the time series `diff(ts)`
+* ~~difference the time series `diff(ts)`~~ **Done**
+* autocorrelation `acf(ts)`
+* partial autocorrelation `pacf(ts)`
+* exponential smoothing state space model (forecast) `ets(ts)`
+* simple exponential smoothing `ses(ts)`
