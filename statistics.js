@@ -70,7 +70,49 @@ function skewness(list){
   return 3*(mean(list) - median(list))/standard_deviation(list);
 }
 
+/**
+* Calculates the sum
+* @param {Array.<Number>} list
+* @return {Number} sum
+*/ 
+function sum(list){
+  var len = list.length;
+  var sum = 0;
+  for(var i = 0; i < len; i++){
+    sum = sum + list[i];
+  }
+  return sum;
+}
+
+/**
+* Calculates the max
+* @param {Array.<Number>} list
+* @return {Number} max
+*/
+function max(list){
+  if(list.length === 0) throw new Error("List length is zero");
+  list.sort(function(a,b) {return a - b;});
+  return list[list.length - 1];
+}
+
+/**
+* Calculates the min
+* @param {Array.<Number>} list
+* @return {Number} min
+*/
+function min(list){
+  if(list.length === 0) throw new Error("List length is zero");
+  list.sort(function(a,b) {return a - b;});
+  return list[0];
+}
+
 module.exports = {
+  max: max,
+
+  min: min,
+
+  sum: sum,
+
   mean: avg,
   avg: avg,
   
