@@ -1,12 +1,25 @@
 {
   "name": "time-series-tools",
-  "version": "1.0.0",
-  "description": "Tools for time series analysis",
+  "version": "1.0.1",
+  "description": "Tools for time series analysis, statistics and autoregressive models",
   "author": "Rylans",
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
     "jest-cli": "^0.1.18"
-  }
+  },
+  "repository":{
+    "type": "git",
+	"url": "https://github.com/rylans/time-series-tools"
+  },
+  "keywords": [
+    "statistics", "linear regression", "data analysis", "time series analysis", "arima", "autoregressive"
+  ],
+  "contributors": [
+    {
+	  "name": "Rylan Santinon",
+	  "email": "rylans@gmail.com"
+	}
+  ]
 }
