@@ -4,6 +4,14 @@
 */
 
 /**
+* Throw an exception if list's length is zero
+* @param {Array} list
+*/
+function assertNotEmpty(list){
+  if(list.length === 0) throw new Error("List length is zero");
+}
+
+/**
 * Calculates the arithmetic mean
 * @param {Array.<Number>} list
 * @return {Number} mean
@@ -33,6 +41,27 @@ function variance(list){
   
   if(variance < 0) throw new Error("Variance is never negative");
   return variance;
+}
+
+/**
+* Calculates the covariance of two columns
+* @param {Array.<Number>} x column
+* @param {Array.<Number>} y column
+* @return {Number} covariance of x and y
+*/
+function covariance(xcol, ycol){
+  assertNotEmpty(xcol);
+  assertNotEmpty(ycol);
+  if(xcol.length != ycol.length) throw new Error("Both columns must have same number of elements");
+
+  var xmean = avg(xcol);
+  var ymean = avg(ycol);
+  var cov = 0.0;
+  for(var i = 0; i < xcol.length; i++){
+    cov = cov + (xcol[i] - xmean)*(ycol[i] - ymean);
+  }
+  
+  return cov/(xcol.length - 1);
 }
 
 /**
@@ -122,6 +151,9 @@ module.exports = {
   skewness: skewness,
   
   variance: variance,
+  
+  cov: covariance,
+  covariance: covariance,
  
   sd: standard_deviation,
   standard_deviation: standard_deviation
