@@ -50,6 +50,8 @@ function standard_deviation(list){
 * @return {Number} median
 */ 
 function median(list){
+  if(list.length === 0) throw new Error("List length is zero");
+
   list.sort(function(a,b) {return a - b;});
   var len = list.length;
   if(len%2 != 0){

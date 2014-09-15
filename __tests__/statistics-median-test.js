@@ -41,4 +41,18 @@ describe('median', function(){
 
 	expect(actual).toBeCloseTo(expected, 12);
   });
+  
+  it('throws error when list is empty', function(){
+    log.info('SPEC: median throws error when list is empty');
+	
+	var stats = require('../statistics');
+	var median = stats.median;
+	
+	var list = []
+	var expected_err = "List length is zero";
+	
+	log.info("Expected error: " + expected_err);
+
+    expect(function() {median(list);}).toThrow(new Error(expected_err));
+ });
 });
