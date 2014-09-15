@@ -65,6 +65,19 @@ function covariance(xcol, ycol){
 }
 
 /**
+* Calculates the linear least squares fit for the two columns
+* @param {Array.<Number>} x column
+* @param {Array.<Number>} y column
+* @return {Array.<Number>} array[0] is y-intercept and array[1] is slope
+*/
+function least_squares_fit(xcol, ycol){
+  var slope = covariance(xcol, ycol)/covariance(xcol, xcol);
+  var intercept = avg(ycol) - slope*avg(xcol);
+  
+  return [intercept, slope];
+}
+
+/**
 * Calculates the population standard deviation
 * @param {Array.<Number>} list
 * @return {Number} standard deviation
@@ -154,6 +167,9 @@ module.exports = {
   
   cov: covariance,
   covariance: covariance,
+  
+  lsfit: least_squares_fit,
+  least_squares_fit: least_squares_fit,
  
   sd: standard_deviation,
   standard_deviation: standard_deviation

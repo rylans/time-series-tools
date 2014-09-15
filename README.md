@@ -34,7 +34,7 @@ I'm aiming for *100% test coverage* and the following features:
 * sum
 
 ### Fitting & regression
-* fit linear model
+* ~~fit linear model~~ **Done**
 * fit exponential model
 
 ### R functions
