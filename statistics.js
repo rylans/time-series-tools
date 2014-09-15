@@ -85,7 +85,7 @@ function sum(list){
 }
 
 /**
-* Calculates the max
+* Calculates the maximum
 * @param {Array.<Number>} list
 * @return {Number} max
 */
@@ -96,7 +96,7 @@ function max(list){
 }
 
 /**
-* Calculates the min
+* Calculates the minimum
 * @param {Array.<Number>} list
 * @return {Number} min
 */
