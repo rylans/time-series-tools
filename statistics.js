@@ -50,12 +50,12 @@ function standard_deviation(list){
 * @return {Number} median
 */ 
 function median(list){
-  list.sort();
+  list.sort(function(a,b) {return a - b;});
   var len = list.length;
-  if((len%2) === 0){
-    return list[len/2];
+  if(len%2 != 0){
+    return list[Math.floor(len/2)];
   } else {
-    return (list[len/2] + list[(len/2) +1])/2;
+    return (list[len/2] + list[(len/2) + 1])/2;
   }
 }
 
@@ -72,7 +72,7 @@ module.exports = {
   mean: avg,
   avg: avg,
   
-  meadian: median,
+  median: median,
   
   skew: skewness,
   skewness: skewness,
