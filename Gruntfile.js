@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['statistics.js', 'vector.js'],
+        src: ['src/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ['Gruntfile.js','statistics.js', 'vector.js', '__tests__/**/*.js'],
+      files: ['Gruntfile.js','src/**/*.js', '__tests__/**/*.js'],
       options: {
 		laxcomma: true,
 		laxbreak: true,
