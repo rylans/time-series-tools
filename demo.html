@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>time-series-tools demo</title>
+</head>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    console.log( "ready!" );
+	$.plot($("#placeholder"), [ [[0, 0], [0.25, 0.75], [0.35, 0.66], [1, 1] ] ], { yaxis: { max: 1 } });
+});
+</script>
+<body>
+	<h2>time series tools</h2>
+	<div id="placeholder" style="width:600px;height:300px"></div>
+	<p>demo of basic functionality.</p>
+</body>
+</html>

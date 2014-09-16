@@ -12,7 +12,8 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
-    "jest-cli": "^0.1.18"
+    "jest-cli": "^0.1.18",
+    "jquery": "^2.1.1"
   },
   "repository": {
     "type": "git",
