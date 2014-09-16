@@ -9,10 +9,10 @@ describe('median', function(){
     log.info('SPEC: median calculates results for even number of elements');
 
     var stats = require('../statistics');
-	var median = stats.median
+	var median = stats.median;
 	
 	var list = [20, 10, 30, 4];
-	var expected = 25.0
+	var expected = 25.0;
 	var actual = median(list);
 
 	log.info("Input: " + list);
@@ -26,14 +26,13 @@ describe('median', function(){
     log.info('SPEC: median calculates results for odd number of elements');
 
     var stats = require('../statistics');
-	var median = stats.median
+	var median = stats.median;
 	
 	var list = [59,-12,11];
-	var expected = 11
+	var expected = 11;
 	var actual = median(list);
 
-	log.info("halflen: " + Math.floor(list.length/2))
-	
+	log.info("halflen: " + Math.floor(list.length/2));
 	
 	log.info("Input: " + list);
 	log.info("Expected: " + expected);
@@ -48,7 +47,7 @@ describe('median', function(){
 	var stats = require('../statistics');
 	var median = stats.median;
 	
-	var list = []
+	var list = [];
 	var expected_err = "List length is zero";
 	
 	log.info("Expected error: " + expected_err);

@@ -18,11 +18,11 @@ function assertNotEmpty(list){
 */
 function avg(list){
   if(list.length === 0) throw new Error("List length is zero");
-  var avg = 0.0;
+  var cumulative_sum = 0.0;
   for(var i = 0; i < list.length; i++){
-    avg = avg + list[i];
+    cumulative_sum = cumulative_sum + list[i];
   }
-  return (avg/list.length);
+  return cumulative_sum/list.length;
 }
 
 /**
@@ -37,10 +37,10 @@ function variance(list){
   for(var i = 0; i < list.length; i++){
     sum = sum + (list[i] - m) * (list[i] - m);
   }
-  var variance = sum/list.length;
+  var v = sum/list.length;
   
-  if(variance < 0) throw new Error("Variance is never negative");
-  return variance;
+  if(v < 0) throw new Error("Variance is never negative");
+  return v;
 }
 
 /**
@@ -96,7 +96,7 @@ function median(list){
 
   list.sort(function(a,b) {return a - b;});
   var len = list.length;
-  if(len%2 != 0){
+  if(len%2 !== 0){
     return list[Math.floor(len/2)];
   } else {
     return (list[len/2] + list[(len/2) + 1])/2;
@@ -119,11 +119,11 @@ function skewness(list){
 */ 
 function sum(list){
   var len = list.length;
-  var sum = 0;
+  var sum_total = 0;
   for(var i = 0; i < len; i++){
-    sum = sum + list[i];
+    sum_total = sum_total + list[i];
   }
-  return sum;
+  return sum_total;
 }
 
 /**

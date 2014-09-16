@@ -28,7 +28,7 @@ describe('variance', function(){
 	var stats = require('../statistics');
 	var variance = stats.variance;
 	
-	var list = []
+	var list = [];
 	var expected_err = "List length is zero";
 	
 	log.info("Expected error: " + expected_err);

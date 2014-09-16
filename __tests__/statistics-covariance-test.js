@@ -11,8 +11,8 @@ describe('covariance', function(){
     var stats = require('../statistics');
 	var cov = stats.cov;
 	
-	var xcol = [2.1, 2.5, 4.0, 3.6]
-	var ycol = [8, 12, 14, 10]
+	var xcol = [2.1, 2.5, 4.0, 3.6];
+	var ycol = [8, 12, 14, 10];
 	var expected = 1.5333333333332;
 	var actual = cov(xcol, ycol);
 
