@@ -7,19 +7,26 @@
     "test": "jest"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.5.1",
     "jest-cli": "^0.1.18"
   },
-  "repository":{
+  "repository": {
     "type": "git",
-	"url": "https://github.com/rylans/time-series-tools"
+    "url": "https://github.com/rylans/time-series-tools"
   },
   "keywords": [
-    "statistics", "linear regression", "data analysis", "time series analysis", "arima", "autoregressive"
+    "statistics",
+    "linear regression",
+    "data analysis",
+    "time series analysis",
+    "arima",
+    "autoregressive"
   ],
   "contributors": [
     {
-	  "name": "Rylan Santinon",
-	  "email": "rylans@gmail.com"
-	}
+      "name": "Rylan Santinon",
+      "email": "rylans@gmail.com"
+    }
   ]
 }
