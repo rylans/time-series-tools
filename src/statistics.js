@@ -8,7 +8,17 @@
 * @param {Array} list
 */
 function assertNotEmpty(list){
-  if(list.length === 0) throw new Error("List length is zero");
+  if(list.length === 0) 
+    throw new Error("List length is zero");
+}
+
+/**
+* Throw an exception if both lists don't have the same length
+* @param {Array} list
+*/
+function assertSameLength(list1, list2){
+  if(list1.length !== list2.length)
+    throw new Error("Both columns must have same number of elements")
 }
 
 /**
@@ -17,7 +27,7 @@ function assertNotEmpty(list){
 * @return {Number} mean
 */
 function avg(list){
-  if(list.length === 0) throw new Error("List length is zero");
+  assertNotEmpty(list);
   var cumulative_sum = 0.0;
   for(var i = 0; i < list.length; i++){
     cumulative_sum = cumulative_sum + list[i];
@@ -31,7 +41,7 @@ function avg(list){
 * @return {Number} variance
 */
 function variance(list){
-  if(list.length === 0) throw new Error("List length is zero");
+  assertNotEmpty(list);
   var m = avg(list);
   var sum = 0.0;
   for(var i = 0; i < list.length; i++){
@@ -52,7 +62,7 @@ function variance(list){
 function covariance(xcol, ycol){
   assertNotEmpty(xcol);
   assertNotEmpty(ycol);
-  if(xcol.length != ycol.length) throw new Error("Both columns must have same number of elements");
+  assertSameLength(xcol, ycol);
 
   var xmean = avg(xcol);
   var ymean = avg(ycol);
@@ -92,7 +102,7 @@ function standard_deviation(list){
 * @return {Number} median
 */ 
 function median(list){
-  if(list.length === 0) throw new Error("List length is zero");
+  assertNotEmpty(list);
 
   list.sort(function(a,b) {return a - b;});
   var len = list.length;
@@ -132,7 +142,7 @@ function sum(list){
 * @return {Number} max
 */
 function max(list){
-  if(list.length === 0) throw new Error("List length is zero");
+  assertNotEmpty(list);
   list.sort(function(a,b) {return a - b;});
   return list[list.length - 1];
 }
@@ -143,7 +153,7 @@ function max(list){
 * @return {Number} min
 */
 function min(list){
-  if(list.length === 0) throw new Error("List length is zero");
+  assertNotEmpty(list);
   list.sort(function(a,b) {return a - b;});
   return list[0];
 }
