@@ -5,12 +5,12 @@ var fs = require('fs')
   , log = new Log('info', fs.createWriteStream('statistics-sd-test.log'));
   
 describe('sd', function(){
+  var stats = require('../src/statistics');
+  var sd = stats.sd;
+	
   it('produces correct values', function(){
     log.info('SPEC: sd produces correct values');
 
-    var stats = require('../statistics');
-	var sd = stats.sd;
-	
 	var list = [206,76,-224,36,-94];
 	var expected = 147.32277488562318;
 	var actual = sd(list);

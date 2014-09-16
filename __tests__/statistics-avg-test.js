@@ -5,11 +5,11 @@ var fs = require('fs')
   , log = new Log('info', fs.createWriteStream('statistics-avg-test.log'));
 
 describe('avg', function() {
+  var stats = require('../src/statistics');
+  var avg = stats.avg;
+
   it('produces four numbers to equal 2.0', function() {
     log.info('SPEC: avg produces four numbers to equal 2.0');
- 
-    var stats = require('../statistics');
-    var avg = stats.avg;
 
     var list = [1.2, 4.4, 1.1, 1.3];
     var expected = 2.0;
@@ -24,9 +24,6 @@ describe('avg', function() {
  
   it('throws error due to empty list', function(){
     log.info('SPEC: throws error due to empty list');
-
-    var stats = require('../statistics');
-    var avg = stats.avg;
 
     var list = [];
 	var expected_err = "List length is zero";

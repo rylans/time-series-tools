@@ -5,12 +5,12 @@ var fs = require('fs')
   , log = new Log('info', fs.createWriteStream('vector-diff-test.log'));
 
 describe('diff', function(){
+  var vector = require('../src/vector');
+  var diff = vector.diff;
+
   it('produces correct values', function(){
     log.info('SPEC: diff produces correct values');
 
-    var vector = require('../vector');
-	var diff = vector.diff;
-	
 	var list = [9,6,3,2,3];
 	var expected = [-3, -3, -1, 1];
 	var actual = diff(list);
@@ -24,9 +24,6 @@ describe('diff', function(){
   
   it('has output length equal to input - 1', function(){
     log.info('SPEC: diff has output length equal to input - 1');
-
-    var vector = require('../vector');
-	var diff = vector.diff;   
 	
 	var list = [13, 2.1, 95.14, 23133.9998, 239, 1.12, 2, 0.1285];
 	var expected = list.length - 1;
@@ -41,9 +38,6 @@ describe('diff', function(){
   
   it('throws error when input is empty', function(){
     log.info('SPEC: diff throws error when input is empty');
-	
-    var vector = require('../vector');
-    var diff = vector.diff;
 	
 	var list = [];
 	var expected_err = "Vector has too few elements";

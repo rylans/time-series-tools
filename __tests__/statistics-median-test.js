@@ -5,11 +5,11 @@ var fs = require('fs')
   , log = new Log('info', fs.createWriteStream('statistics-median-test.log'));
   
 describe('median', function(){
+  var stats = require('../src/statistics');
+  var median = stats.median;
+ 
   it('calculates results for even number of elements', function(){
     log.info('SPEC: median calculates results for even number of elements');
-
-    var stats = require('../statistics');
-	var median = stats.median;
 	
 	var list = [20, 10, 30, 4];
 	var expected = 25.0;
@@ -24,9 +24,6 @@ describe('median', function(){
   
   it('calculates results for odd number of elements', function(){
     log.info('SPEC: median calculates results for odd number of elements');
-
-    var stats = require('../statistics');
-	var median = stats.median;
 	
 	var list = [59,-12,11];
 	var expected = 11;
@@ -43,9 +40,6 @@ describe('median', function(){
   
   it('throws error when list is empty', function(){
     log.info('SPEC: median throws error when list is empty');
-	
-	var stats = require('../statistics');
-	var median = stats.median;
 	
 	var list = [];
 	var expected_err = "List length is zero";

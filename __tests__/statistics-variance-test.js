@@ -5,11 +5,12 @@ var fs = require('fs')
   , log = new Log('info', fs.createWriteStream('statistics-variance-test.log'));
   
 describe('variance', function(){
+  var stats = require('../src/statistics');
+  var variance = stats.variance;
+ 
   it('produces correct values', function(){
     log.info('SPEC: variance produces correct values');
-
-    var stats = require('../statistics');
-	var variance = stats.variance;
+    log.info('SPEC: variance produces correct values');
 	
 	var list = [206,76,-224,36,-94];
 	var expected = 21704.0;
@@ -24,9 +25,6 @@ describe('variance', function(){
   
   it('throws error when list is empty', function(){
     log.info('SPEC: variance throws error when list is empty');
-	
-	var stats = require('../statistics');
-	var variance = stats.variance;
 	
 	var list = [];
 	var expected_err = "List length is zero";
