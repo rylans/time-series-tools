@@ -18,7 +18,7 @@ function assertNotEmpty(list){
 */
 function assertSameLength(list1, list2){
   if(list1.length !== list2.length)
-    throw new Error("Both columns must have same number of elements")
+    throw new Error("Both columns must have same number of elements");
 }
 
 /**
