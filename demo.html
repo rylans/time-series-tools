@@ -4,6 +4,7 @@
 </head>
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="src/statistics.js"></script>
+<script type="text/javascript" src="src/Timeseries.js"></script>
 <script type="text/javascript" src="src/vector.js"></script>
 <script type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
 <script type="text/javascript">
@@ -29,6 +30,8 @@ function zip() {
 	var time = [1917, 1918, 1919, 1920, 1921,
 				1922, 1923, 1924, 1925, 1926,
 				1927, 1928, 1929, 1930, 1931];
+	var ts = new Timeseries(data, time);
+	var ts_plot = ts.toPlot();
 	
 	var plot_data = zip(time, data);
 	
@@ -45,7 +48,7 @@ function zip() {
 	$('#variance').text("variance= " + v);
 	$('#skew').text("skew= " + skew);
 
-	$.plot($("#placeholder"), [plot_data], {});
+	$.plot($("#placeholder"), [ts_plot], {});
 	
 	$.plot($("#placeholder2"), [plot_diff_data], {});
 });
