@@ -4,10 +4,10 @@
 */
 
 function Timeseries(dataValues, timeValues){
-	if(dataValues == null) throw new Error("Values may not be null");
+	if(dataValues === null) throw new Error("Values may not be null");
 	this.dataValues = dataValues;
 
-	if(timeValues == null){
+	if(timeValues === null){
 		var i;
 		var syntheticTimes = [];
 		for(i = 0; i < dataValues.length; i++){
@@ -22,7 +22,7 @@ function Timeseries(dataValues, timeValues){
 	}
 	
 	Object.freeze(this);
-};
+}
 
 Timeseries.prototype.toPlot = function(){
 	"use strict";
@@ -36,4 +36,9 @@ Timeseries.prototype.toPlot = function(){
 		zipped.push(e);
 	}
 	return zipped;
+};
+
+if (typeof module !== 'undefined' && module.exports)
+module.exports = {
+  Timeseries: Timeseries
 };
