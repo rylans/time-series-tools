@@ -31,24 +31,48 @@ function zip() {
 	var ts = new Timeseries(data, time);
 	var ts_plot = ts.toPlot();
 	
+	var lsq = least_squares_fit(time, data);
+	var lsq_line = [];
+	lsq_line.push([1917, lsq[0]]);
+	lsq_line.push([1931, 1931*lsq[1] + lsq[0]]);
+	console.log(lsq_line);
+	
 	var plot_data = zip(time, data);
 	
 	var diff_data = diff(data);
 	var plot_diff_data = zip(time, diff_data);
+	
+	var sma_data = simple_moving_average(data, 1);
+	var plot_sma_data = zip(time, sma_data);
 
 	var mean = avg(data);
 	var v = variance(data);
 	var skew = skewness(data);
 
-	$('#title').text("Births per 10,00 women");
-	$('#title2').text("First differences");
 	$('#mean').text("mean= " + mean);
 	$('#variance').text("variance= " + v);
 	$('#skew').text("skew= " + skew);
 
+	$('#title').text("Births per 10,00 women");
 	$.plot($("#placeholder"), [ts_plot], {});
 	
+	$('#title2').text("First differences");
 	$.plot($("#placeholder2"), [plot_diff_data], {});
+	
+	$('#btnDiff').click(function(){
+		$('#title2').text("First differences");
+		$.plot($("#placeholder2"), [plot_diff_data], {});
+	});
+	
+	$('#btnSma').click(function(){
+		$('#title2').text("Simple moving average");
+		$.plot($("#placeholder2"), [plot_sma_data], {});
+	});
+	
+	$('#btnLine').click(function(){
+		$('#title2').text("Line fit");
+		$.plot($("#placeholder2"), [lsq_line], {});
+	});
 });
 </script>
 <body>
@@ -57,7 +81,10 @@ function zip() {
 	<p>
 	<h3><span id="title"></span><h3>
 	<div id="placeholder" style="width:600px;height:300px"></div>
-	
+	<p>
+	<input id="btnDiff" type="submit" value="Show diff" />
+	<input id="btnSma" type="submit" value="Show moving average" />
+	<input id="btnLine" type="submit" value="Show least squares line fit" />
 	<p>
 	<h3><span id="title2"></span></h3>
 	<div id="placeholder2" style="width:600px;height:300px"></div>
