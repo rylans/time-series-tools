@@ -158,6 +158,7 @@ function min(list){
   return list[0];
 }
 
+if (typeof module !== 'undefined' && module.exports)
 module.exports = {
   max: max,
 

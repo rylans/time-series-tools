@@ -21,6 +21,7 @@ function diff_lag(vec, lag){
   return diff_vector;
 }
 
+if (typeof module !== 'undefined' && module.exports)
 module.exports = {
   diff: diff
 };
