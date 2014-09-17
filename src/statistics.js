@@ -119,7 +119,7 @@ function median(list){
 * @return {Number} skewness
 */ 
 function skewness(list){
-  return 3*(mean(list) - median(list))/standard_deviation(list);
+  return 3*(avg(list) - median(list))/standard_deviation(list);
 }
 
 /**

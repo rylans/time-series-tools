@@ -3,16 +3,75 @@
 <title>time-series-tools demo</title>
 </head>
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="src/statistics.js"></script>
+<script type="text/javascript" src="src/vector.js"></script>
 <script type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    console.log( "ready!" );
-	$.plot($("#placeholder"), [ [[0, 0], [0.25, 0.75], [0.35, 0.66], [1, 1] ] ], { yaxis: { max: 1 } });
+function zip() {
+    var args = [].slice.call(arguments);
+    var longest = args.reduce(function(a,b){
+        return a.length>b.length ? a : b
+    }, []);
+
+    return longest.map(function(_,i){
+        return args.map(function(array){return array[i]})
+    });
+}
+    console.log( "Document loaded." );
+	
+	$('#mean').text('999');
+	$('#variance').text('999');
+
+	var data = [183.1, 183.9, 163.1, 179.5, 181.4,
+				173.4, 167.6, 177.4, 171.7, 170.1,
+				163.7, 151.9, 145.4, 145.0, 138.9];
+	var time = [1917, 1918, 1919, 1920, 1921,
+				1922, 1923, 1924, 1925, 1926,
+				1927, 1928, 1929, 1930, 1931];
+	
+	var plot_data = zip(time, data);
+	
+	var diff_data = diff(data);
+	var plot_diff_data = zip(time, diff_data);
+
+	var mean = avg(data);
+	var v = variance(data);
+	var skew = skewness(data);
+
+	$('#title').text("Births per 10,00 women");
+	$('#title2').text("First differences");
+	$('#mean').text("mean= " + mean);
+	$('#variance').text("variance= " + v);
+	$('#skew').text("skew= " + skew);
+
+	$.plot($("#placeholder"), [plot_data], {});
+	
+	$.plot($("#placeholder2"), [plot_diff_data], {});
 });
 </script>
 <body>
-	<h2>time series tools</h2>
+	<h1>time series tools [DEMO]</h1>
+	
+	<p>
+	<h3><span id="title"></span><h3>
 	<div id="placeholder" style="width:600px;height:300px"></div>
-	<p>demo of basic functionality.</p>
+	
+	<p>
+	<h3><span id="title2"></span></h3>
+	<div id="placeholder2" style="width:600px;height:300px"></div>
+	
+	
+	<table>
+	<tr><td><b>Statistics</b></td>
+	</tr>
+	<tr><td><span id="mean"></span></td>
+	</tr>
+	<tr><td><span id="variance"></span></td>
+	</tr>
+	<tr><td><span id="skew"></span></td>
+	</tr>
+	</table>
+
 </body>
 </html>
