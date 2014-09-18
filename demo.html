@@ -31,7 +31,7 @@ function zip() {
 	var ts = new Timeseries(data, time);
 	var ts_plot = ts.toPlot();
 	
-	var lsq = least_squares_fit(time, data);
+	var lsq = tstModule.statistics.least_squares_fit(time, data);
 	var lsq_line = [];
 	lsq_line.push([1917, lsq[0]]);
 	lsq_line.push([1931, 1931*lsq[1] + lsq[0]]);
@@ -45,9 +45,9 @@ function zip() {
 	var sma_data = simple_moving_average(data, 1);
 	var plot_sma_data = zip(time, sma_data);
 
-	var mean = avg(data);
-	var v = variance(data);
-	var skew = skewness(data);
+	var mean = tstModule.statistics.avg(data);
+	var v = tstModule.statistics.variance(data);
+	var skew = tstModule.statistics.skewness(data);
 
 	$('#mean').text("mean= " + mean);
 	$('#variance').text("variance= " + v);
