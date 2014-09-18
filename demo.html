@@ -28,7 +28,7 @@ function zip() {
 	var time = [1917, 1918, 1919, 1920, 1921,
 				1922, 1923, 1924, 1925, 1926,
 				1927, 1928, 1929, 1930, 1931];
-	var ts = new Timeseries(data, time);
+	var ts = tstModule.timeseries.Timeseries(data, time);
 	var ts_plot = ts.toPlot();
 	
 	var lsq = tstModule.statistics.least_squares_fit(time, data);
