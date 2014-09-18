@@ -38,14 +38,41 @@ var tstModule = (function(module) {
 		
 		return sma_series;
 	}
+	
+	/**
+	* Low pass filter: dampen high frequencies 
+	* @param {Array.<Number>} series
+	* @return {Array.<Number>} low pass series
+	*/
+	function low_pass(series){
+		return simple_moving_average(series, 3);
+	}
+	
+	/**
+	* High pass filter: dampen low frequencies 
+	* @param {Array.<Number>} series
+	* @return {Array.<Number>} high pass series
+	*/
+	function high_pass(series){
+		var low = low_pass(series);
+		var high = [];
+		for(var i = 0; i < low.length; i++){
+			high.push(series[i] - low[i]);
+		}
+		return high;
+	}
 
 	module.filtering = {
-		simple_moving_average: simple_moving_average
+		simple_moving_average: simple_moving_average,
+		low_pass: low_pass,
+		high_pass: high_pass
 	};
 	return module;
 }(tstModule || {}));
 
 if (typeof module !== 'undefined' && module.exports)
 	module.exports = {
-	  simple_moving_average: tstModule.filtering.simple_moving_average
+		simple_moving_average: tstModule.filtering.simple_moving_average,
+		low_pass: tstModule.filtering.low_pass,
+		high_pass: tstModule.filtering.high_pass
 	};
