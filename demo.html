@@ -42,7 +42,7 @@ function zip() {
 	var diff_data = diff(data);
 	var plot_diff_data = zip(time, diff_data);
 	
-	var sma_data = simple_moving_average(data, 1);
+	var sma_data = tstModule.filtering.simple_moving_average(data, 1);
 	var plot_sma_data = zip(time, sma_data);
 
 	var mean = tstModule.statistics.avg(data);
