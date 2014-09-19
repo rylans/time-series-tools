@@ -30,6 +30,7 @@ function zip() {
 				1927, 1928, 1929, 1930, 1931];
 	var ts = tstModule.timeseries.Timeseries(data, time);
 	var ts_plot = ts.toPlot();
+	var tslog_plot = ts.log().toPlot();
 	
 	var lsq = tstModule.statistics.least_squares_fit(time, data);
 	var lsq_line = [];
@@ -73,6 +74,11 @@ function zip() {
 		$('#title2').text("Line fit");
 		$.plot($("#placeholder2"), [lsq_line], {});
 	});
+	
+	$('#btnLog').click(function(){
+		$('#title2').text("Log");
+		$.plot($("#placeholder2"), [tslog_plot], {});
+	});
 });
 </script>
 <body>
@@ -85,6 +91,7 @@ function zip() {
 	<input id="btnDiff" type="submit" value="Show diff" />
 	<input id="btnSma" type="submit" value="Show moving average" />
 	<input id="btnLine" type="submit" value="Show least squares line fit" />
+	<input id="btnLog" type="submit" value="Show log" />
 	<p>
 	<h3><span id="title2"></span></h3>
 	<div id="placeholder2" style="width:600px;height:300px"></div>

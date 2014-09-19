@@ -50,6 +50,26 @@ var tstModule = (function(module) {
 	};
 	
 	/**
+	* Make all elements greater than zero and then take the log
+	* of every element
+	*/
+	Timeseries.prototype.log = function(){
+		var minVal = this.dataValues[0];
+		for(var i = 0; i < this.dataValues.length; i++){
+			if(this.dataValues[i] < minVal) minVal = this.dataValues[i];
+		}
+		
+		var newData = [];
+		if(minVal < 0) minVal = minVal * -1;
+		else minVal = 0;
+
+		for(var j = 0; j < this.dataValues.length; j++){
+			newData.push(Math.log(this.dataValues[j] + minVal + 1));
+		}
+		return new Timeseries(newData, this.timeValues);
+	};
+	
+	/**
 	* Return a new timeseries representing this minus ts
 	*/
 	Timeseries.prototype.minus = function(ts){
