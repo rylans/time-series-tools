@@ -5,15 +5,29 @@ Functions for statistics, time series analysis and ARIMA models
 
 ## Usage
 
-Install Jest
+Install:
 
 ```
-npm install jest-cli --save-dev
+npm install
 ```
 
 to run the tests:
 ```
 npm test
+```
+
+Run jshint and uglify using grunt:
+```
+grunt
+```
+
+For server applications, modules can be `require`d and on the client
+side simply use:
+```
+<script type="text/javascript" src="dist/time-series-tools.js"></script>
+<script>
+  var mean = tstModule.statistics.avg([10, 7.7, 14.5]); //=> 10.733333
+</script>
 ```
 
 ## Planned features
@@ -35,6 +49,7 @@ I'm aiming for *100% test coverage* and the following features:
 
 ### Fitting & regression
 * ~~fit linear model~~ **Done**
+* quadratic regression
 * fit exponential model
 
 ### R functions
