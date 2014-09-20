@@ -33,8 +33,9 @@ function zip() {
 	var tslog_plot = ts.log().toPlot();
 	
 	var lsq = tstModule.statistics.least_squares_fit(time, data);
+	console.log(lsq);
 	var lsq_line = [];
-	lsq_line.push([1917, lsq[0]]);
+	lsq_line.push([1917, 1917*lsq[1] + lsq[0]]);
 	lsq_line.push([1931, 1931*lsq[1] + lsq[0]]);
 	console.log(lsq_line);
 	
