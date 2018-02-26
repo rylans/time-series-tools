@@ -1,6 +1,6 @@
 jest.autoMockOff();
 
-var fs = require('fs')
+var fs = require('fs');
   
 describe('simple moving average', function(){
   var filtering = require('../src/filtering');

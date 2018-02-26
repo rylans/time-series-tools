@@ -1,6 +1,6 @@
 jest.autoMockOff();
 
-var fs = require('fs')
+var fs = require('fs');
 
 describe('diff', function(){
   var vector = require('../src/vector');
