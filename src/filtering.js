@@ -15,6 +15,22 @@ var tstModule = (function(module) {
 		throw new Error("List length is zero");
 	}
 
+	function simple_exponential_smoothing(series, alpha){
+	  assertNotEmpty(series);
+	  var prev = 0.0;
+	  var ses_series = [];
+
+	  for(var i = 0; i < series.length; i++) {
+	    if (i === 0){
+	      ses_series.push(series[i]);
+	    } else {
+	      ses_series.push( alpha*series[i] + (1.0-alpha)*prev );
+	    }
+	    prev = ses_series[i];
+	  }
+	  return ses_series;
+	}
+
 	/**
 	* Calculates the simple moving average with (2*range + 1) points
 	* @param {Array.<Number>} series
@@ -64,6 +80,7 @@ var tstModule = (function(module) {
 
 	module.filtering = {
 		simple_moving_average: simple_moving_average,
+		simple_exponential_smoothing: simple_exponential_smoothing,
 		low_pass: low_pass,
 		high_pass: high_pass
 	};
@@ -73,6 +90,7 @@ var tstModule = (function(module) {
 if (typeof module !== 'undefined' && module.exports)
 	module.exports = {
 		simple_moving_average: tstModule.filtering.simple_moving_average,
+		simple_exponential_smoothing: tstModule.filtering.simple_exponential_smoothing,
 		low_pass: tstModule.filtering.low_pass,
 		high_pass: tstModule.filtering.high_pass
 	};

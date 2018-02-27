@@ -58,7 +58,7 @@ I'm aiming for *100% test coverage* and the following features:
 * autocorrelation `acf(ts)`
 * partial autocorrelation `pacf(ts)`
 * exponential smoothing state space model (forecast) `ets(ts)`
-* simple exponential smoothing `ses(ts)`
+* ~~simple exponential smoothing `ses(ts)`~~ **Done**
 
 ### Time-series specific
 * trend detection
